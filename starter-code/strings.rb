@@ -5,46 +5,71 @@
   # takes in a word
   # returns the first letter of the word
   # lowercases the first letter of the word
+  def first_char(str)
+    str[0].downcase
+  end
 
 #polly_wanna
   # takes in a word
   # echoes the original word
   # repeats the original word 3 times
   # returns a string with the word repeated
+  def polly_wanna(word)
+    word*3
+  end
 
 #count_chars
   # takes in a word
   # returns the number of characters in the word
+  def count_chars(word)
+    return word.size
+  end
 
 #yell
   # takes in a message
   # convert the message to uppercase
   # adds an exclamation point to the end of the message
   # returns the message
+  def yell(word)
+    word.upcase+"!"
+  end
 
 ## STRETCH ##
 #to_telegram
   # takes in a message
   # replaces periods with ' STOP'
   # returns the updated message
+  def to_telegram(message)
+    message.gsub!(".", " STOP")
+  end
 
 
 #spell_out
   # takes in a string
   # converts the string to lowercase
   # returns the input string, with characters seperated by dashes
-
+  def spell_out(str)
+    str.split("").join("-").downcase
+  end
 
 #seperate
   # takes in a string
   # seperates characters with a custom seperator, when supplied with one
   # seperates characters with dashes (by default)
   # returns the modified string
+  def seperate(str, seperator = "-")
+    str.split("").join(seperator).downcase
+  end
+
 
 ## STRETCH ##
 #croon
   # seperates word characters with dashes
   # preserves whitespace between words
+  def croon(sentence)
+    arr = sentence.downcase.split(" ")
+    arr.map{|word| word.split("").join("-")}.join(" ")
+  end
 
 #palindrome_word?
   # determines whether a single word is a palindrome
