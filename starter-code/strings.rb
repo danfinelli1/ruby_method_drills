@@ -75,6 +75,13 @@
   # determines whether a single word is a palindrome
   # ignores case
   # returns true or false
+  def palindrome_word?(str)
+    if(str.reverse.downcase == str.downcase)
+      return true
+    elsif(str.reverse!=str)
+      return false
+    end
+  end
 
 
 ## SUPER STRETCH ##
@@ -83,12 +90,23 @@
   # ignores case
   # ignores whitespace
   # ignores punctuation
+    def palindrome_sentence?(str)
+      str.gsub!(/[[:punct:]]|[[:blank:]]/, "")
+      if(str.reverse.downcase == str.downcase)
+        return true
+      elsif(str.reverse!=str)
+        return false
+      end
+    end
 
 #is_vowel
   # takes in a string of one character
   # determines whether the character is a vowel
   # ignores case
   # handles weird inputs gracefully
+  def is_vowel(str)
+    str.is_a?(String) && !!str.downcase.match(/[aeiou]/)
+  end
 
 #add_period
   # takes in a string
@@ -96,3 +114,6 @@
   # does not add a period if one is already there
   # does not add a period if any form of terminal punctuation is present
   # returns the sentence
+  def add_period(str)
+    str = str.match(/[[:punct:]]$/) ? str : str + "."
+  end
